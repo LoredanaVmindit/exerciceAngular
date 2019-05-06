@@ -1,9 +1,9 @@
 (function () {
     angular.module('app')
-        .controller('tableController', ['$scope', '$location', tableController]);
+        .controller('tableController', ['$scope', '$location','array','servUser', tableController]);
 
 
-    function tableController($scope, $location) {
+    function tableController($scope, $location,array,servUser) {
         console.log('table controller initialised');
         if (typeof (Storage) != "undefined") {
             console.log('supports local storage');
@@ -11,12 +11,15 @@
             console.log('does not support local storage');
         }
 
-        $scope.list = [
-            { ID: '123589', name: 'Loredana V.', age: 20 },
-            { ID: '256987', name: 'Iulian', age: 21 },
-            { ID: '147589', name: 'Marius', age: 20 },
-            { ID: '333666', name: 'Ion', age: 22 }
-        ];
+        $scope.list = array;
+
+      $scope.selUser = function (user) {
+         
+             $scope.row = servUser.set(user);
+           //  $scope.print = servUser.get();
+          
+          console.log('user is selected');
+      }
 
         $scope.clicked = function () {
             $location.path('/create');
@@ -42,6 +45,8 @@
         
 
     }
+
+    
 
 
 

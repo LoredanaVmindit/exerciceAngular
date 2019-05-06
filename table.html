@@ -1,35 +1,46 @@
 <div>
     <div class="container">
+        <br>
         <h2 align='center'>Table with users:</h2>
-        <p>This table contains some records for testing :)</p>
+        <h3>This table contains some records for testing :)</h3>
         <table class="table table-dark table-hover">
             <thead>
                 <tr>
                     <th>Unique Id</th>
                     <th>Name</th>
                     <th>Age</th>
+                    <th>Select record</th>
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="x in list">
+                <tr ng-repeat="x in list" ng-click='selUser(x)'>
+
                     <td>{{x.ID}}</td>
                     <td>{{x.name}}</td>
                     <td>{{x.age}}</td>
+                    <td>
+                        <div class="checkbox">
+                            <label><input type="checkbox" value=""></label>
+                        </div>
+                    </td>
+
                 </tr>
+
 
             </tbody>
         </table>
     </div>
 </div>
-    <br>
-    <br>
+<br>
+<br>
 
 
 <div align='center'>
 
-    <button type="button" class="btn btn-dark" ng-click ="clicked()">Create</button>
-    <button type="button" class="btn btn-dark" ng-click ="clickedv()">View</button>
-    <button type="button" class="btn btn-dark" ng-click ="clickede()">Edit</button>
-    <button type="button" class="btn btn-dark" ng-click ="clickedd()">Delete</button>
+    <button type="button" class="btn btn-dark" ng-click="clicked()">Create</button>
+    <button type="button" class="btn btn-dark" ng-click="clickedv()">View</button>
+    <button type="button" class="btn btn-dark" ng-click="clickede()">Edit</button>
+    <button type="button" class="btn btn-dark" ng-click="clickedd()">Delete</button>
+   
 
 </div>

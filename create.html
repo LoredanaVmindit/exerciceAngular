@@ -4,45 +4,45 @@
 <body>
     <br>
     <br>
-    <h1 align = 'center'>Enter your details below</h2>
-
-    <div align = 'center'>
-
-        <form ng-submit="submit()">
-            Name:<br>
-            <input type = "text" ng-model ="name" placeholder = "Enter name">
-            <br>
-            Email Address:<br>
-            <input type = "email" ng-model = "email" placeholder = "Enter email">
-            <br>
-            Date of Birth:<br>
-            <input type = "text" ng-model = "bday"  placeholder = "enter date zz-ll-aaaa">
-            <br>
-            About:<br>
-            <textarea ng-model = "about" id = "about" rows = "4" cols = "25"></textarea>
-            <br>
-
-            <br><br>
-            <!-- <input type = "submit" value = "Submit"> -->
-            <button type = 'submit' class = 'btn btn-dark'>Submit</button>
-            
-        </form>
-        <br>
-        <img src = "./resources/create-form.jpg" alt="Have a good day!!">
-        <div align = 'top'>
-                <button type = 'button' class = 'btn btn-dark' ng-click = "deleteCookie()">Clear history</button>
-        </div>
-
-        <div align='left'>
-                <button type="button" class='btn btn-dark' ng-click ="back()">Back</button>
-        </div>
-                
-        
-        
-
+    <div align='justify'>
+        <button type="button" class='btn btn-dark' ng-click="back()">Back</button>
     </div>
+    <h1 align='center'>Enter your details below</h2>
+
+        <div align='center'>
+
+            <form ng-submit="submit()">
+                Name:<br>
+                <input type="text" ng-model="name" placeholder="Enter name">
+                <br>
+                Email Address:<br>
+                <input type="email" ng-model="email" placeholder="Enter email">
+                <br>
+                Date of Birth:<br>
+                <input type="text" ng-model="bday" placeholder="enter date zz-ll-aaaa">
+                <br>
+                About:<br>
+                <textarea ng-model="about" id="about" rows="4" cols="25"></textarea>
+                <br>
+
+                <br><br>
+                <!-- <input type = "submit" value = "Submit"> -->
+                <button type='submit' class='btn btn-dark'>Submit</button>
+
+            </form>
+           
+            <img src="./resources/face.png" alt="Have a good day!!">
+            <div align='top'>
+                <button type='button' class='btn btn-dark' ng-click="deleteCookie()">Clear history</button>
+            </div>
+
+
+
+
+
+
+        </div>
 
 </body>
 
 </html>
-

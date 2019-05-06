@@ -21,13 +21,16 @@
                 controller :'createContr'
             })
             .when('/view',{
-                templateUrl:'view.html'
+                templateUrl:'view.html',
+                controller:'viewContr'
             })
             .when('/edit',{
-                templateUrl:'edit.html'
+                templateUrl:'edit.html',
+                controller: 'editContr'
             })
             .when('/delete',{
-                templateUrl:'delete.html'
+               templateUrl:'delete.html',
+                controller:'delContr'
             });
             
     }]);
