@@ -10,8 +10,8 @@
             console.log('the record was put to delete process');
 
             $scope.delete = function () {
-                var index = 0;
-                var theOne = 0;
+                var index = -1;
+                var theOne = -1;
 
                 for (i in array) {
                 
