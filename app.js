@@ -14,23 +14,23 @@
         $routeProvider
             .when('/',{
                 templateUrl :'table.html',
-                controller :'tableController as Ctrl'
+                controller :'tableContr'
             })
             .when('/create',{
-                templateUrl:'create.html',
-                controller :'createContr'
+                templateUrl:'views/create.html',
+                controller :'controllers/createContr'
             })
             .when('/view',{
-                templateUrl:'view.html',
-                controller:'viewContr'
+                templateUrl:'views/view.html',
+                controller:'controllers/viewContr'
             })
             .when('/edit',{
-                templateUrl:'edit.html',
-                controller: 'editContr'
+                templateUrl:'views/edit.html',
+                controller: 'controllers/editContr'
             })
             .when('/delete',{
-               templateUrl:'delete.html',
-                controller:'delContr'
+               templateUrl:'views/delete.html',
+                controller:'controllers/delContr'
             });
             
     }]);

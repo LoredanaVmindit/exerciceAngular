@@ -1,6 +1,6 @@
 (function () {
     angular.module('app')
-        .controller('viewContr', ['$scope', '$location', 'array', 'servUser', viewContr]);
+        .controller('controllers/viewContr', ['$scope', '$location', 'array', 'servUser', viewContr]);
 
     function viewContr($scope, $location, array, servUser) {
 

@@ -1,6 +1,6 @@
 (function () {
     angular.module('app')
-        .controller('tableController', ['$scope', '$location','array','servUser', tableController]);
+        .controller('tableContr', ['$scope', '$location','array','servUser', tableController]);
 
 
     function tableController($scope, $location,array,servUser) {

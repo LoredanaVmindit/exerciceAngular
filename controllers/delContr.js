@@ -1,7 +1,7 @@
 (function (){
 
     angular.module('app')
-            .controller('delContr',['$scope','$location','array','servUser',delContr]);
+            .controller('controllers/delContr',['$scope','$location','array','servUser',delContr]);
 
         function delContr($scope,$location,array,servUser){
             console.log('delete in controller');

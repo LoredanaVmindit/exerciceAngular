@@ -1,6 +1,6 @@
 (function () {
     angular.module('app')
-        .controller('editContr', ['$scope', '$location', 'servUser', 'array', editContr]);
+        .controller('controllers/editContr', ['$scope', '$location', 'servUser', 'array', editContr]);
 
     function editContr($scope, $location, servUser, array) {
 

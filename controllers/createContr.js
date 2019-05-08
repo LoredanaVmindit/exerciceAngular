@@ -1,6 +1,6 @@
 (function () {
     angular.module('app')
-        .controller('createContr', ['$scope', '$location', createContr]);
+        .controller('controllers/createContr', ['$scope', '$location', createContr]);
 
 
     function createContr($scope, $location) {
