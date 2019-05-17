@@ -5,27 +5,29 @@
     function editContr($scope, $location, servUser, array) {
 
         console.log('here is the controller edit!');
-
-        $scope.printSelected = servUser.get();
+        $scope.selected = true;
+        console.log(servUser.get())
+        if (servUser.test() == 1)
+            $scope.printSelected = servUser.get();
 
         $scope.saveName = function () {
-
-            $scope.printSelected.name = $scope.newName;
-
-            for (i in array) {
-                if (i.ID === $scope.printSelected.ID) {
-                    i.name = $scope.printSelected.name;
-
-                    console.log('success!')
+            console.log(printSelected);
+            // $scope.printSelected.name = $scope.newName;
+            for (i = 1; i <= localStorage.length; i++) {
+                var retrieve = localStorage.getItem(i);
+                if(retrieve.ID === printSelected.ID){
+                    console.log('user founded');
                 }
+                
             }
+
         };
 
         $scope.saveAge = function () {
 
             $scope.printSelected.age = $scope.newAge;
 
-            for (i in array) {
+            for (i in array.list()) {
                 if (i.ID === $scope.printSelected.ID) {
                     i.age = $scope.printSelected.age;
 
@@ -38,7 +40,7 @@
 
             $scope.printSelected.email = $scope.newEmail;
 
-            for (i in array) {
+            for (i in array.list()) {
                 if (i.ID === $scope.printSelected.ID) {
                     i.email = $scope.printSelected.email;
 
@@ -51,7 +53,7 @@
 
             $scope.printSelected.city = $scope.newCity;
 
-            for (i in array) {
+            for (i in array.list()) {
                 if (i.ID === $scope.printSelected.ID) {
                     i.city = $scope.printSelected.city;
 
@@ -60,9 +62,16 @@
             }
         };
 
+
+
+
+
+
+
         $scope.back = function () {
             $location.path('/');
             console.log('back in the menu');
-        }
+        };
+
     }
-})();
+    }) ();

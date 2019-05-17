@@ -24,14 +24,16 @@
           <li>
             <p><span style="width:50px;"></span>ID : {{ printSelected.ID }}</p>
           </li>
+
           <li>
-            <p><span style="width:50px;"></span>Age : {{ printSelected.age }}</p>
+            <p><span style="width:50px;"></span>Date of birth : {{ printSelected.bday }}</p>
           </li>
+
           <li>
-            <p><span class="glyphicon glyphicon-envelope one" style="width:50px;"></span> {{printSelected.email}}</p>
+            <p><span style="width:50px;"></span> Email : {{printSelected.email}}</p>
           </li>
-          <li>
-            <p><span class="glyphicon glyphicon-map-marker one" style="width:50px;"></span>{{printSelected.city}}</p>
+          <li ng-if ="printSelected.about != undefined">
+            <p><span style="width:50px;"></span>About : {{printSelected.about}}</p>
           </li>
 
         </ul>

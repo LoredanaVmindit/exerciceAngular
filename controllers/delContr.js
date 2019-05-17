@@ -1,38 +1,46 @@
-(function (){
+(function () {
 
     angular.module('app')
-            .controller('controllers/delContr',['$scope','$location','array','servUser',delContr]);
+        .controller('controllers/delContr', ['$scope', '$location', 'array', 'servUser', delContr]);
 
-        function delContr($scope,$location,array,servUser){
-            console.log('delete in controller');
-          
+    function delContr($scope, $location, array, servUser) {
+
+        console.log('delete in controller');
+        $scope.selected = true;
+
+        if (servUser.test() == 1) {
             $scope.deletedRec = servUser.get();
-            console.log('the record was put to delete process');
+        }
+        else {
+            $scope.selected = false;
+        }
 
-            $scope.delete = function () {
-                var index = -1;
-                var theOne = -1;
+        $scope.delete = function () {
 
-                for (i in array) {
-                
-                    if (i.ID === $scope.deletedRec.ID) {
-                        theOne = index ;  
-                        
-                    }
+          /*   var index = -1;
+            var theOne = -1; */
+            var list = array.list();
 
-                    index += 1 ;
-
+            /* for (i in list) {
+                console.log('im into for');
+                if (i.ID === $scope.deletedRec.ID) {
+                    theOne = index;
                 }
-
-                array.splice(theOne,1);
-               console.log(array);
-            };
-
-            $scope.back = function () {
-                $location.path('/');
-                console.log('back in the menu');
+                index += 1;
             }
 
-        }        
+            list.splice(theOne, 1); */
+
+            var index = list.indexof($scope.deletedRec);
+            if(index > -1) {
+                list.splice(index,1);
+            }
+
+            alert('The user was removed successfully!');
+            $location.path('/');
+
+        };
+
+    }
 
 }());

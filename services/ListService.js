@@ -1,15 +1,43 @@
 //<reference path = "viewContr.js" />
 //<reference path = "tableController.js"/>
 
-angular.module('app').factory('array',function (){
-    list = [
-        { ID: '123589', name: 'Loredana V.', age: 20 , email :"vulpeloredanageorgiana@yahoo.com", city : "Bucharest"},
-        { ID: '256987', name: 'Iulian', age: 21 , email :"iulian@yahoo.com", city : "Brasov"},
-        { ID: '147589', name: 'Marius', age: 20 , email :"marius.sc@gmail.com" , city : "Galati"},
-        { ID: '333666', name: 'Ion', age: 22 , email : "ion98@yahoo.com", city : "Iasi" }
-    ];
+angular.module('app').factory('array', function () {
 
-    return list ; 
+
+    var listDefault = function () {
+        var list = [];
+
+        for (i = 1; i <= localStorage.length; i++) {
+            var retrieve = localStorage.getItem(i);
+            list.push(JSON.parse(retrieve));
+        }
+
+        return list;
+    };
+
+    var searchInStorage = function (user){
+        for (i = 1; i <= localStorage.length; i++) {
+            var retrieve = localStorage.getItem(i);
+            if(retrieve.ID === user.ID){
+                console.log('user founded');
+            }
+            
+        }
+    };
+
+
+    return {
+
+        list: listDefault,
+        searchStorage : searchInStorage
+
+    };
+
+
+
+
+
+
 });
 
 
