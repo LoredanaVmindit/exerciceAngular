@@ -1,9 +1,9 @@
 (function () {
 
     angular.module('app')
-        .controller('controllers/delContr', ['$scope', '$location', 'array', 'servUser', delContr]);
+        .controller('controllers/delContr', ['$scope', '$location', 'array', 'servUser', 'localStore', delContr]);
 
-    function delContr($scope, $location, array, servUser) {
+    function delContr($scope, $location, array, servUser, localStore) {
 
         console.log('delete in controller');
         $scope.selected = true;
@@ -16,30 +16,11 @@
         }
 
         $scope.delete = function () {
-
-          /*   var index = -1;
-            var theOne = -1; */
-            var list = array.list();
-
-            /* for (i in list) {
-                console.log('im into for');
-                if (i.ID === $scope.deletedRec.ID) {
-                    theOne = index;
-                }
-                index += 1;
-            }
-
-            list.splice(theOne, 1); */
-
-            var index = list.indexof($scope.deletedRec);
-            if(index > -1) {
-                list.splice(index,1);
-            }
-
+            localStore.delete($scope.deletedRec);
             alert('The user was removed successfully!');
             $location.path('/');
-
         };
+
 
     }
 

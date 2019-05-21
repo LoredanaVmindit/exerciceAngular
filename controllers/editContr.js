@@ -1,71 +1,47 @@
 (function () {
     angular.module('app')
-        .controller('controllers/editContr', ['$scope', '$location', 'servUser', 'array', editContr]);
+        .controller('controllers/editContr', ['$scope', '$location', 'servUser', 'localStore', editContr]);
 
-    function editContr($scope, $location, servUser, array) {
+    function editContr($scope, $location, servUser,localStore) {
 
         console.log('here is the controller edit!');
-        $scope.selected = true;
-        console.log(servUser.get())
-        if (servUser.test() == 1)
+        
+       
+        if (servUser.test() == 1){
             $scope.printSelected = servUser.get();
 
+        } 
+        
+    
         $scope.saveName = function () {
-            console.log(printSelected);
-            // $scope.printSelected.name = $scope.newName;
-            for (i = 1; i <= localStorage.length; i++) {
-                var retrieve = localStorage.getItem(i);
-                if(retrieve.ID === printSelected.ID){
-                    console.log('user founded');
-                }
-                
-            }
-
+         
+            $scope.printSelected.name = $scope.Name;
+            localStore.save().Name($scope.printSelected,$scope.Name);
+            servUser.update($scope.printSelected);
+           
         };
 
-        $scope.saveAge = function () {
-
-            $scope.printSelected.age = $scope.newAge;
-
-            for (i in array.list()) {
-                if (i.ID === $scope.printSelected.ID) {
-                    i.age = $scope.printSelected.age;
-
-                    console.log('success!')
-                }
-            }
-        };
+        
 
         $scope.saveEmail = function () {
 
             $scope.printSelected.email = $scope.newEmail;
-
-            for (i in array.list()) {
-                if (i.ID === $scope.printSelected.ID) {
-                    i.email = $scope.printSelected.email;
-
-                    console.log('success!')
-                }
-            }
+            localStore.save().Email($scope.printSelected,$scope.newEmail);
+            servUser.update($scope.printSelected);
+            
         };
 
-        $scope.saveCity = function () {
+        $scope.saveAbout = function () {
 
-            $scope.printSelected.city = $scope.newCity;
+            if($scope.printSelected.about != undefined) {
 
-            for (i in array.list()) {
-                if (i.ID === $scope.printSelected.ID) {
-                    i.city = $scope.printSelected.city;
+                $scope.printSelected.about = $scope.About;
+                localStore.save().About($scope.printSelected,$scope.About);
+                servUser.update($scope.printSelected);
 
-                    console.log('success!')
-                }
             }
+            
         };
-
-
-
-
-
 
 
         $scope.back = function () {

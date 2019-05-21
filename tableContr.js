@@ -1,16 +1,17 @@
 (function () {
     angular.module('app')
-        .controller('tableContr', ['$scope', '$location', 'array', 'servUser', tableController]);
+        .controller('tableContr', ['$scope', '$location', 'array', 'servUser','localStore', tableController]);
 
 
-    function tableController($scope, $location, array, servUser) {
+    function tableController($scope, $location, array, servUser,localStore) {
 
         $scope.list = array.list();
 
         $scope.selUser = function (user) {
 
-            $scope.row = servUser.set(user);
-            console.log('user is selected');
+             $scope.row = servUser.set(user);
+            //var pos = localStore.pos(servUser.get());
+             
         }
 
         $scope.clicked = function () {

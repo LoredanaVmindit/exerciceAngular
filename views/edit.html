@@ -8,10 +8,10 @@
             <br>
             <br>
             <button type="button" class="btn btn-dark" ng-click ="back()">Back</button>
-            <div ng-if="!selected"><h1 align="center">User is not selected! Go back!</h1>
+           <!--  <div ng-if="servUser.test()"><h1 align="center">User is not selected! Go back!</h1>
               <p style="text-align:center;"><img src="./resources/sad.png" alt="stack photo" class="img" ></p>
-            </div>
-            <div ng-if='selected'> 
+            </div> -->
+            
             <div class="container">    
                 <div class="jumbotron">
                   <div class="row">
@@ -25,28 +25,34 @@
                             <hr>
                           <ul class="container details">
                             <li><p><span  style="width:50px;"></span>ID : {{ printSelected.ID }}</p></li>
-                            <li><p><span  style="width:50px;"></span>Age : {{ printSelected.bday }}</p></li>
-                            <li><p><span  style="width:50px;"></span> {{ printSelected.email }}</p></li>
-                            <li><p><span  style="width:50px;"></span>{{ printSelected.about }}</p></li>
+                            <li><p><span  style="width:50px;"></span>Date of birth : {{ printSelected.bday }}</p></li>
+                            <li><p><span  style="width:50px;"></span>Email : {{ printSelected.email }}</p></li>
+                            <li ng-if ="printSelected.about != undefined">
+                              <p><span  style="width:50px;"></span>About : {{ printSelected.about }}</p>
+                            </li>
+                            
                             
                           </ul>
                       </div>
                   </div>
                 </div>
-            </div>
+            
                 <div align = 'center'>
                         The name we want to introduce :<br>
-                        <input type="text" ng-model="newName" placeholder={{printSelected.name}}>
+                        <input type="text" ng-model="$parent.Name"  placeholder={{printSelected.name}}>
                         <button type='submit' class='btn btn-dark' ng-click = 'saveName()'>Save</button>
                         <br>
                         The email we want to introduce :<br>
-                        <input type='email' ng-model="newEmail" placeholder={{printSelected.email}}>
+                        <input type='email' ng-model="$parent.newEmail"  placeholder={{printSelected.email}} >
                         <button type='submit' class='btn btn-dark' ng-click = 'saveEmail()'>Save</button>
                         <br>
-                        The information we want to introduce :<br>
-                        <input type='text' ng-model="newAbout" placeholder={{printSelected.about}}>
-                        <button type='submit' class='btn btn-dark' ng-click = 'saveCity()'>Save</button>
+                        <div ng-if = "printSelected.about != undefined">
+                          The information we want to introduce :<br>
+                        <input type='text' ng-model="$parent.About" placeholder={{printSelected.about}}>
+                        <button type='submit' class='btn btn-dark'  ng-click = 'saveAbout()'>Save</button>
                         <br>
+                        </div>
+                        
                         
                 </div>
 

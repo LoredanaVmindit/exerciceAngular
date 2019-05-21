@@ -2,8 +2,14 @@
 //this service store the selected user from the table
 angular.module('app').factory('servUser', function () {
         var myuser = undefined;
+       
 
         var setItem = function (user) {
+
+                myuser = user;      
+        };
+
+        var updateItem = function (user) {
 
                 myuser = user;      
         };
@@ -11,10 +17,12 @@ angular.module('app').factory('servUser', function () {
         var testDefinedUser = function () {
 
                 if (myuser == undefined) {
+                        
                         return 0;
                 }
                 return 1;
         };
+
 
         var getItem = function () {
                 return myuser;
@@ -23,7 +31,9 @@ angular.module('app').factory('servUser', function () {
         return {
                 set: setItem,
                 get: getItem,
-                test: testDefinedUser
+                test: testDefinedUser,
+                update: updateItem
+               
         };
 
 

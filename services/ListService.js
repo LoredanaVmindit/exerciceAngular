@@ -15,22 +15,22 @@ angular.module('app').factory('array', function () {
         return list;
     };
 
-    var searchInStorage = function (user){
+    var listUpdate = function () {
+
+
         for (i = 1; i <= localStorage.length; i++) {
             var retrieve = localStorage.getItem(i);
-            if(retrieve.ID === user.ID){
-                console.log('user founded');
-            }
-            
+            list.push(JSON.parse(retrieve));
         }
+
+
     };
 
 
     return {
 
         list: listDefault,
-        searchStorage : searchInStorage
-
+        updateList: listUpdate
     };
 
 
