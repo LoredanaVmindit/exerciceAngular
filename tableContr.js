@@ -1,29 +1,27 @@
 (function () {
     angular.module('app')
-        .controller('tableContr', ['$scope', '$location', 'array', 'servUser','localStore', tableController]);
+        .controller('tableContr', ['$scope', '$location', '$array', '$servUser', '$search', tableController]);
 
 
-    function tableController($scope, $location, array, servUser,localStore) {
+    function tableController($scope, $location, $array, $servUser, $search) {
 
-        $scope.list = array.list();
+        $scope.listUsers = $array.getListFromLocalStorage();
 
-        $scope.selUser = function (user) {
+        $scope.selectUser = function (user) {
 
-             $scope.row = servUser.set(user);
-            //var pos = localStore.pos(servUser.get());
-             
+            $scope.row = $servUser.set(user);
+
         }
 
-        $scope.clicked = function () {
+        $scope.clickCreate = function () {
 
             $location.path('/create');
-            console.log('clicked create');
 
         }
 
-        $scope.clickedv = function () {
+        $scope.clickView = function () {
 
-            if (servUser.test() == 0) {
+            if ($servUser.test() == 0) {
 
                 alert("The user is not selected!");
                 $location.path('/');
@@ -37,9 +35,9 @@
 
         }
 
-        $scope.clickede = function () {
+        $scope.clickEdit = function () {
 
-            if (servUser.test() == 0) {
+            if ($servUser.test() == 0) {
 
                 alert("The user is not selected!");
                 $location.path('/');
@@ -53,11 +51,11 @@
 
         }
 
-        $scope.clickedd = function () {
+        $scope.clickDelete = function () {
 
             console.log('clicked delete');
 
-            if (servUser.test() == 0) {
+            if ($servUser.test() == 0) {
 
                 alert("The user is not selected!");
                 $location.path('/');
@@ -71,6 +69,24 @@
 
         }
 
+        $scope.searchBar = function () {
+
+            console.log('clicked search');
+            $search.save($scope.keyword);
+
+            if (this.keyword === undefined) {
+
+                window.alert('You did not type a word in search box!')
+            } else {
+
+                $location.path('/result-photo');
+                
+            }
+
+        }
+
     }
+
+
 
 })();

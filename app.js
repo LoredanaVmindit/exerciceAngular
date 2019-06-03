@@ -31,7 +31,12 @@
             .when('/delete',{
                templateUrl:'views/delete.html',
                 controller:'controllers/delContr'
+            })
+            .when('/result-photo',{
+                templateUrl:'views/search.html',
+                controller:'controllers/searchContr'
             });
+            
             
     }]);
  

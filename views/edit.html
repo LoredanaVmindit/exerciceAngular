@@ -1,59 +1,64 @@
+      <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+      <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+      <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+      <!------ Include the above in your HEAD tag ---------->
 
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
+
+      <br>
+      <br>
+      <button type="button" class="btn btn-dark" ng-click="back()">Back</button>
+      <!--  <div ng-if="servUser.test()"><h1 align="center">User is not selected! Go back!</h1>
+                    <p style="text-align:center;"><img src="./resources/sad.png" alt="stack photo" class="img" ></p>
+                  </div> -->
+
+      <div class="container">
+        <div class="jumbotron">
+          <div class="row">
+            <div class="col-md-4 col-xs-12 col-sm-6 col-lg-4">
+              <img src="./resources/profile-view.svg" alt="stack photo" class="img">
+            </div>
+            <div class="col-md-8 col-xs-12 col-sm-6 col-lg-8">
+              <div class="container" style="border-bottom:1px solid black">
+                <h2>{{ selectedUser.name }}</h2>
+              </div>
+              <hr>
+              <ul class="container details">
+                <li>
+                  <p><span style="width:50px;"></span>ID : {{ selectedUser.ID }}</p>
+                </li>
+                <li>
+                  <p><span style="width:50px;"></span>Date of birth : {{ selectedUser.bday }}</p>
+                </li>
+                <li>
+                  <p><span style="width:50px;"></span>Email : {{ selectedUser.email }}</p>
+                </li>
+                <li ng-if="selectedUser.about != undefined">
+                  <p><span style="width:50px;"></span>About : {{ selectedUser.about }}</p>
+                </li>
 
 
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div align='center'>
+          The name we want to introduce :<br>
+          <input type="text" ng-model="$parent.Name" placeholder={{selectedUser.name}}>
+          <button type='submit' class='btn btn-dark' ng-click='saveName()'>Save</button>
+          <br>
+          The email we want to introduce :<br>
+          <input type='email' ng-model="$parent.newEmail" placeholder={{selectedUser.email}}>
+          <button type='submit' class='btn btn-dark' ng-click='saveEmail()'>Save</button>
+          <br>
+          <div ng-if="selectedUser.about != undefined">
+            The information we want to introduce :<br>
+            <input type='text' ng-model="$parent.About" placeholder={{selectedUser.about}}>
+            <button type='submit' class='btn btn-dark' ng-click='saveAbout()'>Save</button>
             <br>
-            <br>
-            <button type="button" class="btn btn-dark" ng-click ="back()">Back</button>
-           <!--  <div ng-if="servUser.test()"><h1 align="center">User is not selected! Go back!</h1>
-              <p style="text-align:center;"><img src="./resources/sad.png" alt="stack photo" class="img" ></p>
-            </div> -->
-            
-            <div class="container">    
-                <div class="jumbotron">
-                  <div class="row">
-                      <div class="col-md-4 col-xs-12 col-sm-6 col-lg-4">
-                          <img src="./resources/profile-view.svg" alt="stack photo" class="img">
-                      </div>
-                      <div class="col-md-8 col-xs-12 col-sm-6 col-lg-8">
-                          <div class="container" style="border-bottom:1px solid black">
-                            <h2>{{ printSelected.name }}</h2>
-                          </div>
-                            <hr>
-                          <ul class="container details">
-                            <li><p><span  style="width:50px;"></span>ID : {{ printSelected.ID }}</p></li>
-                            <li><p><span  style="width:50px;"></span>Date of birth : {{ printSelected.bday }}</p></li>
-                            <li><p><span  style="width:50px;"></span>Email : {{ printSelected.email }}</p></li>
-                            <li ng-if ="printSelected.about != undefined">
-                              <p><span  style="width:50px;"></span>About : {{ printSelected.about }}</p>
-                            </li>
-                            
-                            
-                          </ul>
-                      </div>
-                  </div>
-                </div>
-            
-                <div align = 'center'>
-                        The name we want to introduce :<br>
-                        <input type="text" ng-model="$parent.Name"  placeholder={{printSelected.name}}>
-                        <button type='submit' class='btn btn-dark' ng-click = 'saveName()'>Save</button>
-                        <br>
-                        The email we want to introduce :<br>
-                        <input type='email' ng-model="$parent.newEmail"  placeholder={{printSelected.email}} >
-                        <button type='submit' class='btn btn-dark' ng-click = 'saveEmail()'>Save</button>
-                        <br>
-                        <div ng-if = "printSelected.about != undefined">
-                          The information we want to introduce :<br>
-                        <input type='text' ng-model="$parent.About" placeholder={{printSelected.about}}>
-                        <button type='submit' class='btn btn-dark'  ng-click = 'saveAbout()'>Save</button>
-                        <br>
-                        </div>
-                        
-                        
-                </div>
+          </div>
 
-                </div>
+
+        </div>
+
+      </div>

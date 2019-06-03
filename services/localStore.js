@@ -1,9 +1,9 @@
 //<reference path = "editContr.js" />
-angular.module('app').factory('localStore', function () {
+angular.module('app').factory('$localStore', function () {
 
     var save = function () {
 
-        var saveName = function (user, name) {
+        var Name = function (user, name) {
             for (i = 1; i <= localStorage.length; i++) {
                 //get from local storage
                 if (JSON.parse(localStorage.getItem(i)).ID === user.ID) {
@@ -20,7 +20,7 @@ angular.module('app').factory('localStore', function () {
 
         };
 
-        var saveEmail = function (user, email) {
+        var Email = function (user, email) {
             for (i = 1; i <= localStorage.length; i++) {
                 //get from local storage
                 if (JSON.parse(localStorage.getItem(i)).ID === user.ID) {
@@ -35,7 +35,7 @@ angular.module('app').factory('localStore', function () {
             }
         };
 
-        var saveAbout = function (user, about) {
+        var About = function (user, about) {
             for (i = 1; i <= localStorage.length; i++) {
                 //get from local storage
                 if (JSON.parse(localStorage.getItem(i)).ID === user.ID) {
@@ -51,9 +51,9 @@ angular.module('app').factory('localStore', function () {
         };
 
         return {
-            Name: saveName,
-            Email: saveEmail,
-            About: saveAbout
+            Name:  Name,
+            Email: Email,
+            About: About
         };
 
     };
@@ -72,14 +72,28 @@ angular.module('app').factory('localStore', function () {
         }
         //remove last element
         localStorage.removeItem(localStorage.length);
-
+        
+       
+        
     };
+
+    var deleteStore = function () {
+        window.localStorage.clear();
+        index = 0;
+        alert('The localStorage is cleared!');
+    }
+
+    var length = function(){
+        return localStorage.length;
+    }
 
 
 
     return {
         save: save,
-        delete: deleteUser
+        delete: deleteUser,
+        deleteAll: deleteStore,
+        length : length
 
     };
 

@@ -1,17 +1,16 @@
 (function () {
     angular.module('app')
-        .controller('controllers/createContr', ['$scope', '$location', 'array', 'servUser', createContr]);
+        .controller('controllers/createContr', ['$scope', '$location', '$localStore', '$timeout', createContr]);
 
 
-    function createContr($scope, $location, array, servUser) {
+    function createContr($scope, $location, $localStore, $timeout) {
         console.log('create controller initialised');
-
 
         var test = function () {
 
             if ($scope.name === undefined || $scope.name === "") {
+
                 alert("ERROR! Name is not introduced");
-                
                 $scope.name = null;
 
             } else {
@@ -37,21 +36,24 @@
 
         }
 
-        var testAdd = function (index) {
+        var testAdd = function (index) {  //tests if there exists data introduced and adds them in table(and localStorage)
 
             test();
-            if (($scope.name != null) && $scope.bday != null ) {
+            var current_date = null;
+            var userObj = null;
+
+            if (($scope.name != null) && $scope.bday != null) {
 
                 if ($scope.about == undefined) {
 
-                    var current_date = (new Date()).valueOf().toString().substring(9, 14);
-                    var userObj = { ID: current_date, name: $scope.name, email: $scope.email, bday: $scope.bday.toString().substring(4,16) };
+                    current_date = (new Date()).valueOf().toString().substring(9, 14);
+                    userObj = { ID: current_date, name: $scope.name, email: $scope.email, bday: $scope.bday.toString().substring(4, 16) };
                     window.localStorage[index] = JSON.stringify(userObj);
 
                 } else {
 
-                    var current_date = (new Date()).valueOf().toString().substring(9, 14);  //generate random number
-                    var userObj = { ID: current_date, name: $scope.name, email: $scope.email, bday: $scope.bday.toString().substring(4,16), about: $scope.about };
+                    current_date = (new Date()).valueOf().toString().substring(9, 14);  //generate random number
+                    userObj = { ID: current_date, name: $scope.name, email: $scope.email, bday: $scope.bday.toString().substring(4, 16), about: $scope.about };
                     window.localStorage[index] = JSON.stringify(userObj);
 
                 }
@@ -59,21 +61,22 @@
             }
 
         }
+
         ///////submit button
         $scope.submit = function () {
-            console.log('You clicked submit');
-            
+
             let index = localStorage.length;
             index += 1;
             testAdd(index);
+            $timeout(function () {
+                $location.path('/')
+            }, 2000);
 
         }
-        //////delete localStorage
-        $scope.deleteCookie = function () {
 
-            window.localStorage.clear();
-            index = 0;
-            alert('The localStorage is cleared!');
+        //////delete localStorage button
+        $scope.deleteHistory = function () {
+            $localStore.deleteAll();
         }
 
         $scope.back = function () {
@@ -81,8 +84,6 @@
             console.log('Back in the menu');
         }
 
-
     }
-
 
 })();

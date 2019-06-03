@@ -20,14 +20,27 @@
     <script src="controllers/editContr.js"></script>
     <script src="controllers/delContr.js"></script>
     <script src="services/localStore.js"></script>
+    <script src="controllers/searchContr.js"></script>
+    <script src="services/searchService.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/search.css"> 
     
 
 
 </head>
 
+<style>
+body {
+    background-image: url("resources/back.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+  }
+
+</style>
 
 
-<body ng-controller="appController" background="resources/back.jpg">
+
+<body ng-controller="appController" >
 
 
     <div ng-view></div>

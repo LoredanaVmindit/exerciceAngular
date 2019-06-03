@@ -1,3 +1,17 @@
+<br>
+<br>
+
+<div class="container">
+
+    <div class="input-group">
+        <input type="text" class="form-control" ng-model="keyword" placeholder="Search an image on www.unsplash.com">
+        <span class="input-group-btn">
+            <button class="btn btn-search" type="button" ng-click="searchBar()"><i
+                    class="fa fa-search fa-fw"></i>Search</button>
+        </span>
+    </div>
+</div>
+
 <div>
     <div class="container">
         <br>
@@ -15,13 +29,13 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="x in list" ng-click='selUser(x)'>
+                <tr ng-repeat="x in listUsers" ng-click='selectUser(x)'>
                     <td>{{x.ID}}</td>
                     <td>{{x.name}}</td>
                     <td>{{x.email}}</td>
                     <td>{{x.bday}}</td>
                     <td>{{x.about}}</tfd>
-                    <td>   
+                    <td>
                         <div align='center' class="checkbox">
                             <label><input type="checkbox" value=""></label>
                         </div>
@@ -37,10 +51,11 @@
 
 <div align='center'>
 
-    <button type="button" class="btn btn-dark" ng-click="clicked()">Create</button>
-    <button type="button" class="btn btn-dark" ng-click="clickedv()">View</button>
-    <button type="button" class="btn btn-dark" ng-click="clickede()">Edit</button>
-    <button type="button" class="btn btn-dark" ng-click="clickedd()">Delete</button>
-   
+    <button type="button" class="btn btn-dark" ng-click="clickCreate()">Create</button>
+    <button type="button" class="btn btn-dark" ng-click="clickView()">View</button>
+    <button type="button" class="btn btn-dark" ng-click="clickEdit()">Edit</button>
+    <button type="button" class="btn btn-dark" ng-click="clickDelete()">Delete</button>
+    <br>
+    <br>
 
 </div>

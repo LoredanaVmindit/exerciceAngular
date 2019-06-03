@@ -1,48 +1,45 @@
 (function () {
     angular.module('app')
-        .controller('controllers/editContr', ['$scope', '$location', 'servUser', 'localStore', editContr]);
+        .controller('controllers/editContr', ['$scope', '$location', '$servUser', '$localStore', editContr]);
 
-    function editContr($scope, $location, servUser,localStore) {
+    function editContr($scope, $location, $servUser, $localStore) {
 
         console.log('here is the controller edit!');
-        
-       
-        if (servUser.test() == 1){
-            $scope.printSelected = servUser.get();
 
-        } 
-        
-    
+
+        if ($servUser.test() == 1) { // user is selected
+            $scope.selectedUser = $servUser.get();
+        } else {
+            alert('error!');
+        }
+
         $scope.saveName = function () {
-         
-            $scope.printSelected.name = $scope.Name;
-            localStore.save().Name($scope.printSelected,$scope.Name);
-            servUser.update($scope.printSelected);
-           
-        };
 
-        
+            $scope.selectedUser.name = $scope.Name;
+            $localStore.save().Name($scope.selectedUser, $scope.Name);
+            $servUser.update($scope.selectedUser);
+
+        };
 
         $scope.saveEmail = function () {
 
-            $scope.printSelected.email = $scope.newEmail;
-            localStore.save().Email($scope.printSelected,$scope.newEmail);
-            servUser.update($scope.printSelected);
-            
+            $scope.selectedUser.email = $scope.newEmail;
+            $localStore.save().Email($scope.selectedUser, $scope.newEmail);
+            $servUser.update($scope.selectedUser);
+
         };
 
         $scope.saveAbout = function () {
 
-            if($scope.printSelected.about != undefined) {
+            if ($scope.selectedUser.about != undefined) {
 
-                $scope.printSelected.about = $scope.About;
-                localStore.save().About($scope.printSelected,$scope.About);
-                servUser.update($scope.printSelected);
+                $scope.selectedUser.about = $scope.About;
+                $localStore.save().About($scope.selectedUser, $scope.About);
+                $servUser.update($scope.selectedUser);
 
             }
-            
-        };
 
+        };
 
         $scope.back = function () {
             $location.path('/');
@@ -50,4 +47,4 @@
         };
 
     }
-    }) ();
+})();

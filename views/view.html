@@ -17,23 +17,23 @@
       </div>
       <div class="col-md-8 col-xs-12 col-sm-6 col-lg-8">
         <div class="container" style="border-bottom:1px solid black">
-          <h2>{{ printSelected.name }}</h2>
+          <h2>{{ selectedUser.name }}</h2>
         </div>
         <hr>
         <ul class="container details">
           <li>
-            <p><span style="width:50px;"></span>ID : {{ printSelected.ID }}</p>
+            <p><span style="width:50px;"></span>ID : {{ selectedUser.ID }}</p>
           </li>
 
           <li>
-            <p><span style="width:50px;"></span>Date of birth : {{ printSelected.bday }}</p>
+            <p><span style="width:50px;"></span>Date of birth : {{ selectedUser.bday }}</p>
           </li>
 
           <li>
-            <p><span style="width:50px;"></span> Email : {{printSelected.email}}</p>
+            <p><span style="width:50px;"></span> Email : {{ selectedUser.email }}</p>
           </li>
-          <li ng-if ="printSelected.about != undefined">
-            <p><span style="width:50px;"></span>About : {{printSelected.about}}</p>
+          <li ng-if="selectedUser.about != undefined">
+            <p><span style="width:50px;"></span>About : {{ selectedUser.about }}</p>
           </li>
 
         </ul>
