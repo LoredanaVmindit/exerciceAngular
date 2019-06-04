@@ -13,12 +13,17 @@
 
         $http.get('https://api.unsplash.com/search/photos?client_id=f50c13e4f29ddba5046c53b0e9ddb7ed05412043645dc197d98ebf29ce1a657e&query=' + this.keyword)
             .then(function (response) {
-                $scope.info = response.data.results;
+                if(response.data.total == 0){
+                    alert('There are no images for this search')
+                }else {
+                $scope.info = response.data.results;}
+
+
                 //$scope.urls = response.data.results.urls.regular;
                 //console.log('status:'+$scope.info.description);
             })
             .catch(function (data) {
-                window.alert('Did not find anything!')
+                window.alert('Something went wrong!')
                 console.log(data.status)
 
             });
